@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-//creating schema
+//creating
 const userSchema = new mongoose.Schema({
   username:{
     type:String,
