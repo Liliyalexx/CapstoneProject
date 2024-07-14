@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "flowbite-react": "^0.7.0-beta.6",
     "react": "^18.2.66",
     "react-dom": "^18.2.22",

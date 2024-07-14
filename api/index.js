@@ -6,6 +6,7 @@ import authRoute from './routes/authRoute.js';
 
 
 dotenv.config();
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO)
