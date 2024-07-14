@@ -5,6 +5,7 @@ import router from './routes/userRoute.js';
 import authRoute from './routes/authRoute.js';
 
 
+
 dotenv.config();
 
 // Connect to MongoDB
@@ -26,6 +27,7 @@ app.use(express.json());
 // User Routes
 app.use('/api/user', router );
 app.use('/api/auth', authRoute );
+
 
 // Start Server
 app.listen(3002, () => {
