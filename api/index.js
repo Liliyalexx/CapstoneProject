@@ -5,8 +5,6 @@ import router from './routes/userRoute.js';
 import authRoute from './routes/authRoute.js';
 import cors from 'cors'; 
 
-
-
 dotenv.config();
 
 // Connect to MongoDB
@@ -29,6 +27,7 @@ app.use(cors()); // Use the cors middleware
 // User Routes
 app.use('/api/auth', authRoute);
 app.use('/api/user', router );
+
 
 
 // Start Server
