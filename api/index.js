@@ -19,6 +19,12 @@ mongoose
 
 // Initialize Express
 const app = express();
+// Signout route
+app.post('/api/user/signout', (req, res) => {
+  // Handle signout logic
+  res.status(200).json({ message: 'Signout successful' });
+});
+
 
 // Middleware
 app.use(express.json());
@@ -27,6 +33,7 @@ app.use(cors()); // Use the cors middleware
 // User Routes
 app.use('/api/auth', authRoute);
 app.use('/api/user', router );
+app.use('/google', router);
 
 
 
