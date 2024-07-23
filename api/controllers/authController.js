@@ -75,7 +75,7 @@ export const google = async(req, res, next) =>{
   try{
     const user = await User.findOne({email});
     if(user){
-      const token = jwt.sign({id:user._id}, process.envJWT_SECRET);
+      const token = jwt.sign({id:user._id}, process.env.JWT_SECRET);
       const {password, ...rest} = user._doc;
       res.status(200)
       .cookie('access_token', token, {
@@ -106,6 +106,7 @@ export const google = async(req, res, next) =>{
     }
   }catch(err){
     console.error(err);
+    next(errorHandler(500, 'Internal Server Error'));
   }
 
 }
