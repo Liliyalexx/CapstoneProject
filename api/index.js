@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import router from './routes/userRoute.js';
 import authRoute from './routes/authRoute.js';
 import cors from 'cors'; 
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors()); // Use the cors middleware
+app.use(cookieParser());
 
 // User Routes
 app.use('/api/auth', authRoute);

@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: 'techherblog.appspot.com',
   messagingSenderId: '264773397883',
   appId: '1:264773397883:web:17a4a72abd94a5515121de',
-};;
+};
 
 // Log configuration for debugging
 console.log("Firebase Config:", firebaseConfig);
