@@ -47,6 +47,7 @@ export default function Header() {
     navigate(`/search?${searchQuery}`);
   };
 
+
   return (
     <Navbar className='border-b-2'>
       <Link
