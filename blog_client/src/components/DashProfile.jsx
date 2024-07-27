@@ -114,7 +114,6 @@ export default function DashProfile() {
       return;
     }
 
-    console.log('Form Data:', formData); // Log formData to check the content
 
     try {
       dispatch(updateStart());
