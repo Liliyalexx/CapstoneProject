@@ -1,10 +1,10 @@
 import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
-import User from '../models/user.js';
+import User from '../models/user.model.js';
 
-export const test=(req, res)=>{
-  res.json({message: 'Api is working!'});
-}
+export const test = (req, res) => {
+  res.json({ message: 'Api is working!' });
+};
 export const signout = (req, res, next) => {
   try {
     res
@@ -72,6 +72,3 @@ export const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
-
-  
-

@@ -1,10 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import router from './routes/userRoute.js';
-import authRoute from './routes/authRoute.js';
-import cors from 'cors'; 
+import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.route.js';
+import postRoutes from './routes/post.route.js';
+//import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
+//import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -18,7 +21,7 @@ mongoose
     console.log(err);
   });
 
-  // Initialize Express
+// Initialize Express
 const app = express();
 // Middleware
 app.use(express.json());
@@ -26,9 +29,10 @@ app.use(cors()); // Use the cors middleware
 app.use(cookieParser());
 
 // User Routes
-app.use('/api/auth', authRoute);
-app.use('/api/user', router );
-app.use('/google', router);
+app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
+// app.use('/google', router);
+app.use('/api/post', postRoutes);
 
 // Signout routes
 app.post('/api/user/signout', (req, res) => {
@@ -36,9 +40,7 @@ app.post('/api/user/signout', (req, res) => {
   res.status(200).json({ message: 'Signout successful' });
 });
 
-
 // Start Server
 app.listen(3002, () => {
   console.log('Server running on port 3002!!');
 });
-

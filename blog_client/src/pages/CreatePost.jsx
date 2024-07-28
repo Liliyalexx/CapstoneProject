@@ -1,11 +1,31 @@
 import { TextInput, Select, FileInput, Button } from 'flowbite-react';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-
 export default function CreatePost() {
-   const quillRef = useRef(null);
+  const quillRef = useRef(null);
+
+  useEffect(() => {
+    // Example of accessing the editor instance if needed
+    if (quillRef.current) {
+      const quill = quillRef.current.getEditor();
+      console.log(quill);
+    }
+
+    // Suppress the warning for development purposes only
+    const originalWarn = console.warn;
+    console.warn = (msg) => {
+      if (msg.includes('findDOMNode is deprecated')) {
+        return;
+      }
+      originalWarn(msg);
+    };
+
+    return () => {
+      console.warn = originalWarn;
+    };
+  }, []);
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className=' text-center text-3xl my-7 font-semibold'>
@@ -48,9 +68,10 @@ export default function CreatePost() {
           className='h-72 mb-12'
           required
         />
-        <Button type='submit' gradientDuoTone='purpleToPink'>Publish</Button>
+        <Button type='submit' gradientDuoTone='purpleToPink'>
+          Publish
+        </Button>
       </form>
     </div>
   );
 }
-
