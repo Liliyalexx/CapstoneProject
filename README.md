@@ -44,55 +44,50 @@ TechHer Blog is a full-stack application designed to empower women by providing 
    cd techher-blog/frontend
 Install dependencies:
 
-bash
-Copy code
+
 npm install
 # or
 yarn install
 Create a .env file in the frontend directory with the following content:
 
-env
-Copy code
+
 VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
 Start the development server:
 
-bash
-Copy code
+
 npm run dev
 # or
 yarn dev
 Backend
 Navigate to the backend directory:
 
-bash
-Copy code
+
 cd techher-blog/backend
 Install dependencies:
 
-bash
-Copy code
+
 npm install
 # or
 yarn install
 Create a .env file in the backend directory with the following content:
 
-env
-Copy code
+
 MONGO='YOUR_MONGO_URI'
 JWT_SECRET='YOUR_JWT_SECRET'
 Start the development server:
 
-bash
-Copy code
+
 npm run dev
 # or
 yarn dev
-Usage
-Visit http://localhost:3000 to access the frontend.
-The backend server runs on http://localhost:3002.
-Folder Structure
-plaintext
-Copy code
+## Usage
+
+- Visit [http://localhost:3000](http://localhost:3000) to access the frontend.
+- The backend server runs on [http://localhost:3002](http://localhost:3002).
+
+## Folder Structure
+
+```plaintext
 .
 ├── blog_client
 │   ├── src
