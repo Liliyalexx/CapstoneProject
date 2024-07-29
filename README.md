@@ -6,15 +6,22 @@ TechHer Blog is a full-stack application designed to empower women by providing 
 
 - [Features](#features)
 - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Redux Integration](#redux-integration)
+  - [Theme Slice](#theme-slice)
+  - [User Slice](#user-slice)
+  - [Store Configuration](#store-configuration)
 - [Firebase Integration](#firebase-integration)
 - [API Endpoints](#api-endpoints)
 - [Environment Variables](#environment-variables)
+  - [Frontend](#frontend-1)
+  - [Backend](#backend-1)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -39,47 +46,85 @@ TechHer Blog is a full-stack application designed to empower women by providing 
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/yourusername/techher-blog.git
-   cd techher-blog/frontend
-Install dependencies:
+    ```bash
+    git clone https://github.com/yourusername/techher-blog.git
+    ```
 
+2. Navigate to the frontend directory:
 
-npm install
-# or
-yarn install
-Create a .env file in the frontend directory with the following content:
+    ```bash
+    cd techher-blog/frontend
+    ```
 
+3. Install dependencies:
 
-VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
-Start the development server:
+    ```bash
+    npm install
+    ```
 
+    or
 
-npm run dev
-# or
-yarn dev
-Backend
-Navigate to the backend directory:
+    ```bash
+    yarn install
+    ```
 
+4. Create a `.env` file in the frontend directory with the following content:
 
-cd techher-blog/backend
-Install dependencies:
+    ```env
+    VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
+    ```
 
+5. Start the development server:
 
-npm install
-# or
-yarn install
-Create a .env file in the backend directory with the following content:
+    ```bash
+    npm run dev
+    ```
 
+    or
 
-MONGO='YOUR_MONGO_URI'
-JWT_SECRET='YOUR_JWT_SECRET'
-Start the development server:
+    ```bash
+    yarn dev
+    ```
 
+### Backend
 
-npm run dev
-# or
-yarn dev
+1. Navigate to the backend directory:
+
+    ```bash
+    cd techher-blog/backend
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+    or
+
+    ```bash
+    yarn install
+    ```
+
+3. Create a `.env` file in the backend directory with the following content:
+
+    ```env
+    MONGO='YOUR_MONGO_URI'
+    JWT_SECRET='YOUR_JWT_SECRET'
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    or
+
+    ```bash
+    yarn dev
+    ```
+
 ## Usage
 
 - Visit [http://localhost:3000](http://localhost:3000) to access the frontend.
