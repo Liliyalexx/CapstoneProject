@@ -112,8 +112,7 @@ Redux Integration
 Theme Slice
 src/redux/theme/themeSlice.js:
 
-javascript
-Copy code
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -135,8 +134,7 @@ export default themeSlice.reducer;
 User Slice
 src/redux/user/userSlice.js:
 
-javascript
-Copy code
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -212,8 +210,8 @@ export default userSlice.reducer;
 Store Configuration
 src/redux/store.js:
 
-javascript
-Copy code
+
+
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import userReducer from './user/userSlice';
 import themeReducer from './theme/themeSlice';
@@ -246,7 +244,7 @@ Firebase Integration
 src/firebase.js:
 
 javascript
-Copy code
+
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
@@ -278,13 +276,13 @@ Frontend
 Create a .env file in the frontend directory with the following content:
 
 env
-Copy code
+
 VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
 Backend
 Create a .env file in the backend directory with the following content:
 
 env
-Copy code
+
 MONGO='YOUR_MONGO_URI'
 JWT_SECRET='YOUR_JWT_SECRET'
 Technologies Used
