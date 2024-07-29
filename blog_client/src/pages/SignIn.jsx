@@ -5,8 +5,6 @@ import {signInStart, signInSuccess, signInFailure} from '../redux/user/userSlice
 import {useDispatch, useSelector} from 'react-redux';
 import OAuth from '../components/OAuth';
 
-//import OAuth from '../components/OAuth';
-
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const {loading, error:errorMessage} = useSelector(state => state.user);

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-//import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 // Your Firebase configuration using environment variables
 const firebaseConfig = {
@@ -12,10 +12,8 @@ const firebaseConfig = {
 };
 
 // Log configuration for debugging
-console.log("Firebase Config:", firebaseConfig);
+console.log('Firebase Config:', firebaseConfig);
 
 // Initialize Firebase
-
-export const app = initializeApp(firebaseConfig); 
-//export const auth = getAuth(app);
-
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
