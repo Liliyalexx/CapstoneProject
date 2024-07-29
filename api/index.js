@@ -5,17 +5,21 @@ import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import postRoutes from './routes/post.route.js';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO)
+  .connect(process.env.MONGO, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
-    console.log('MongoDb is connected');
+    console.log('MongoDB is connected');
   })
   .catch((err) => {
-    console.log(err);
+    console.error('MongoDB connection error:', err);
   });
 
 // Initialize Express
@@ -23,7 +27,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors()); // Use the cors middleware
-// app.use(cookieParser());
+app.use(cookieParser());
+// Error handling middleware in your Express app
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({ message: err.message });
+});
 
 // User Routes
 app.use('/api/user', userRoutes);
