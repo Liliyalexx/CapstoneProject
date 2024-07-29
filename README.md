@@ -44,34 +44,40 @@ TechHer Blog is a full-stack application designed to empower women by providing 
    cd techher-blog/frontend
 Install dependencies:
 
-
+bash
+Copy code
 npm install
 # or
 yarn install
 Create a .env file in the frontend directory with the following content:
 
-
+env
+Copy code
 VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
 Start the development server:
 
-
+bash
+Copy code
 npm run dev
 # or
 yarn dev
 Backend
 Navigate to the backend directory:
 
-
+bash
+Copy code
 cd techher-blog/backend
 Install dependencies:
 
-
+bash
+Copy code
 npm install
 # or
 yarn install
 Create a .env file in the backend directory with the following content:
 
-
+env
+Copy code
 MONGO='YOUR_MONGO_URI'
 JWT_SECRET='YOUR_JWT_SECRET'
 Start the development server:
@@ -85,6 +91,8 @@ Usage
 Visit http://localhost:3000 to access the frontend.
 The backend server runs on http://localhost:3002.
 Folder Structure
+plaintext
+Copy code
 .
 ├── blog_client
 │   ├── src
@@ -94,7 +102,7 @@ Folder Structure
 │   │   │   ├── theme
 │   │   │   └── user
 │   │   ├── App.jsx
-│   │   └── main.jsx
+│   │   ├── main.jsx
 │   │   └── firebase.js
 │   ├── .env
 │   ├── package.json
@@ -105,12 +113,12 @@ Folder Structure
     ├── routes
     ├── utils
     ├── index.js
-  
 Redux Integration
 Theme Slice
 src/redux/theme/themeSlice.js:
 
-
+javascript
+Copy code
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -132,8 +140,8 @@ export default themeSlice.reducer;
 User Slice
 src/redux/user/userSlice.js:
 
-
-
+javascript
+Copy code
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -210,7 +218,7 @@ Store Configuration
 src/redux/store.js:
 
 javascript
-
+Copy code
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import userReducer from './user/userSlice';
 import themeReducer from './theme/themeSlice';
@@ -243,7 +251,7 @@ Firebase Integration
 src/firebase.js:
 
 javascript
-
+Copy code
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
@@ -281,6 +289,7 @@ Backend
 Create a .env file in the backend directory with the following content:
 
 env
+Copy code
 MONGO='YOUR_MONGO_URI'
 JWT_SECRET='YOUR_JWT_SECRET'
 Technologies Used
@@ -293,11 +302,3 @@ Node.js
 Express
 MongoDB
 JWT for authentication
-Contributing
-Contributions are welcome! Please open an issue or submit a pull request.
-
-License
-This project is licensed under the MIT License.
-
-
-This `README.md` file provides an overview of the TechHer Blog project, including installation instructions, usage, folder structure, integration details, API endpoints, environment variables, and more. Feel free to adjust any part of it to better fit your needs.
