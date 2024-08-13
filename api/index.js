@@ -4,17 +4,14 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import postRoutes from './routes/post.route.js';
-import cors from 'cors';
+// import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO)
   .then(() => {
     console.log('MongoDB is connected');
   })
@@ -26,8 +23,14 @@ mongoose
 const app = express();
 // Middleware
 app.use(express.json());
-app.use(cors()); // Use the cors middleware
+// app.use(
+//   cors({
+//     origin: 'http://localhost:5173',
+//     credentials: true, // Allow credentials (cookies, authorization headers)
+//   })
+// );
 app.use(cookieParser());
+
 // Error handling middleware in your Express app
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -49,3 +52,14 @@ app.use('/api/post', postRoutes);
 app.listen(3002, () => {
   console.log('Server running on port 3002!!');
 });
+
+// Graceful Shutdown
+// process.on('SIGINT', () => {
+//   server.close(() => {
+//     console.log('Server shut down gracefully');
+//     mongoose.connection.close(() => {
+//       console.log('MongoDB connection closed');
+//       process.exit(0);
+//     });
+//   });
+// });

@@ -21,7 +21,7 @@ export default function CreatePost() {
   const [publishError, setPublishError] = useState(null);
 
   const navigate = useNavigate();
-  
+
   const handleUpdloadImage = async () => {
     try {
       if (!file) {
@@ -58,21 +58,17 @@ export default function CreatePost() {
       console.log(error);
     }
   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await fetch('/api/post/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    // Log the response text if JSON parsing fails
-    const text = await res.text();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const data = JSON.parse(text);
+      const res = await fetch('/api/post/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
       if (!res.ok) {
         setPublishError(data.message);
         return;
@@ -82,16 +78,10 @@ const handleSubmit = async (e) => {
         setPublishError(null);
         navigate(`/post/${data.slug}`);
       }
-    } catch (jsonError) {
-      console.error('Error parsing JSON:', jsonError);
-      console.error('Server response:', text);
+    } catch (error) {
       setPublishError('Something went wrong');
     }
-  } catch (error) {
-    setPublishError('Something went wrong');
-    console.error('Fetch error:', error);
-  }
-};
+  };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl my-7 font-semibold'>Create a post</h1>
